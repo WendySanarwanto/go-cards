@@ -3,12 +3,25 @@ package main
 import (
 	"fmt"
 	"io/ioutil"
+	"math/rand"
 	"strings"
 )
 
 // Create a new Type of `deck`
 // which is a slice of strings
 type deck []string
+
+// Shuffle cards in the deck 
+func (_deck deck) shuffle() {
+	cardsLength := len(_deck)
+	// Iterate on each cards in deck
+	for i := range _deck {
+		// Random an integer number 0 to cards length -1
+		newPosition := rand.Intn(cardsLength -1)
+		// Swap cards[i] with cards[newPosition]
+		_deck[i], _deck[newPosition] = _deck[newPosition], _deck[i]
+	}
+}
 
 // Read saved deck from a file
 func newDeckFromFile(filename string) (deck, error) {

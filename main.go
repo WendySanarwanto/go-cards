@@ -9,6 +9,8 @@ func main() {
 		cards = newDeck()
 		cards.saveToFile("MyCards")
 	}
+	// Shuffle the cards 1st
+	cards.shuffle()
 	cards.print()
 
 	// Call deal method
