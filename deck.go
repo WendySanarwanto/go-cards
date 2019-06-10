@@ -1,10 +1,20 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strings"
+)
 
 // Create a new Type of `deck`
 // which is a slice of strings
 type deck []string
+
+// Joined all cards in deck as a single string
+func (_deck deck) toString() string {
+	cards := []string(_deck);
+	joinedCards := strings.Join(cards, ", ")
+	return joinedCards
+}
 
 // A helper method for creating an instance of deck type and initialise its elements
 func newDeck() deck {
