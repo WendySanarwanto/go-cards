@@ -2,12 +2,19 @@ package main
 
 import (
 	"fmt"
+	"io/ioutil"
 	"strings"
 )
 
 // Create a new Type of `deck`
 // which is a slice of strings
 type deck []string
+
+func (_deck deck) saveToFile(filename string) error {
+	deckInBytes := []byte(_deck.toString())
+	err := ioutil.WriteFile(filename, deckInBytes, 0666)
+	return err
+}
 
 // Joined all cards in deck as a single string
 func (_deck deck) toString() string {

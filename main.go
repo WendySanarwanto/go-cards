@@ -4,6 +4,7 @@ import "fmt"
 
 func main() {
 	cards := newDeck()
+	cards.saveToFile("MyCards")
 	// cards.print()
 
 	// Call deal method
