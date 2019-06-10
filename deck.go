@@ -31,3 +31,10 @@ func (_deck deck) print() {
 		fmt.Println("Card #", i+1, ": ", card)
 	}
 }
+
+// Deak cards - Demonstrates a function which return multiple values
+// 							and getting partial elements of slices by using range index
+func deal(_deck deck, handSize int) (deck, deck) {
+	return _deck[handSize:], // Pick element at specified index up to beyond
+				 _deck[:handSize]  // Pick elements from index 0 up to specified index - 1
+}
