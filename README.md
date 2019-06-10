@@ -14,3 +14,4 @@ Simple Go program which demonstrate basic concepts of Go programming language su
 
 * Run the compiled binary by running this command: `go run github.com/wendysanarwanto/go-cards`
 
+* To run the test, use this command: `go test`
