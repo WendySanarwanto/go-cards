@@ -1,6 +1,9 @@
 package main
 
-import "testing"
+import (
+	"os"
+	"testing"
+)
 
 func TestNewDeck(t *testing.T) {
 	cards := newDeck()
@@ -19,4 +22,25 @@ func TestNewDeck(t *testing.T) {
 		t.Errorf("Expected card #%v is '%v', but got '%v'", 
 							cards[expectedCardsLength-1],  "King of Spades", cards[0])
 	}
+}
+
+func TestSaveToFileAndNewDeckFromFile(t *testing.T) {
+	filename := "_deckSaveLoadToFileTesting"
+	os.Remove(filename)
+
+	cards := newDeck()
+	if cards.saveToFile(filename) != nil {
+		t.Errorf("Expected deck to be saved into a file, named as %v", filename)
+	}
+
+	loadedCards, err := newDeckFromFile(filename)
+	if err != nil {
+		t.Errorf("Expected deck to be loaded successfully from '%v' file ", filename)
+	}
+
+	if (len(loadedCards) != len(cards)) {
+		t.Errorf("Expected %v cards in loaded deck, but got %v cards", len(cards), len(loadedCards))
+	}
+
+	os.Remove(filename)
 }
