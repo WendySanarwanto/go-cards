@@ -3,9 +3,13 @@ package main
 import "fmt"
 
 func main() {
-	cards := newDeck()
-	cards.saveToFile("MyCards")
-	// cards.print()
+	cards, err := newDeckFromFile("MyCards")
+	if err != nil {
+		fmt.Println("Error: ", err)
+		cards = newDeck()
+		cards.saveToFile("MyCards")
+	}
+	cards.print()
 
 	// Call deal method
 	_, remainingDeck := deal(cards, 5)

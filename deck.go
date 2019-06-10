@@ -10,6 +10,14 @@ import (
 // which is a slice of strings
 type deck []string
 
+// Read saved deck from a file
+func newDeckFromFile(filename string) (deck, error) {
+	readByteSlice, err := ioutil.ReadFile(filename)
+	readData := string(readByteSlice)
+	return deck(strings.Split(readData, ", ")), err
+}
+
+// Save joined deck's cards into a file
 func (_deck deck) saveToFile(filename string) error {
 	deckInBytes := []byte(_deck.toString())
 	err := ioutil.WriteFile(filename, deckInBytes, 0666)
