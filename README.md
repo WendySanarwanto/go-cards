@@ -10,8 +10,8 @@ Simple Go program which demonstrate basic concepts of Go programming language su
 
 * Run this command to get this source code: `go get github.com/wendysanarwanto/go-cards`. The source code will be placed in `$GOPATH/src/github.com/wendysanarwanto/go-cards` directory.
 
-* Build the source code by running this command: `go build github.com/wendysanarwanto/go-cards`
+* Build the source code by running this command: `go build -o $GOPATH/bin/go-cards github.com/wendysanarwanto/go-cards`
 
-* Run the compiled binary by running this command: `go run github.com/wendysanarwanto/go-cards`
+* Run the compiled binary by running this command: `go-cards`
 
-* To run the test, use this command: `go test`
+* To run the test, use this command: `go test github.com/wendysanarwanto/go-cards`
